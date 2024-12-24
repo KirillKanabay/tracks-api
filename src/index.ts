@@ -1,6 +1,7 @@
 import express from 'express';
 import {PORT} from "./config";
-import {logger} from "./common/logger.service";
+import {logger} from "./common/logging/logger.service";
+import {authRouter} from "./controllers/auth.controller";
 
 process
     .on('unhandledRejection', (reason) => {
@@ -12,6 +13,8 @@ process
     });
 
 const app = express();
+
+app.use('/auth', authRouter);
 
 const startApp = async () => {
     app.listen(PORT, () => { logger.info(`Server is running on port ${PORT}`); });

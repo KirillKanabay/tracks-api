@@ -1,5 +1,5 @@
 import {createLogger, format, transports} from "winston";
-import {LOG_LEVEL, LOG_MAX_FILE_SIZE} from "../config";
+import {LOG_LEVEL, LOG_MAX_FILE_SIZE} from "../../config";
 import 'winston-daily-rotate-file';
 import path from "node:path";
 
