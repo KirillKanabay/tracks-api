@@ -1,4 +1,8 @@
 export class AuthService{
+    constructor() {
+
+    }
+
     public async login(login: string, password: string){
 
     }
