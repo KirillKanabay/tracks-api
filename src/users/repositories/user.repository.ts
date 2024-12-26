@@ -1,6 +1,6 @@
 
 import {UserEntity} from "../entities/user.entity";
-import {User} from "../models/user.model";
+import {User} from "../../dataAccess/models/user.model";
 
 export class UserRepository{
     async get(id: string): Promise<UserEntity | null> {

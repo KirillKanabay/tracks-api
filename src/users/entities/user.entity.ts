@@ -1,4 +1,4 @@
-import {BaseEntity} from "./base.entity";
+import {BaseEntity} from "../../dataAccess/entities/base.entity";
 
 export interface UserEntity extends BaseEntity {
     login: string;

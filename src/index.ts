@@ -1,9 +1,9 @@
 import express from 'express';
 import {PORT} from "./config";
-import {logger} from "./services/logger.service";
-import {authRouter} from "./controllers/auth.controller";
+import {logger} from "./common/services/logger.service";
+import {authRouter} from "./auth/controllers/auth.controller";
 import {createSequelize} from "./dataAccess/sequelizeFactory";
-import {errorHandlingMiddleware} from "./middlewares/errorHandling.middleware";
+import {errorHandlingMiddleware} from "./common/middlewares/errorHandling.middleware";
 
 const app = express();
 const sequelize = createSequelize();

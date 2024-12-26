@@ -1,4 +1,4 @@
-import {ACCESS_TOKEN_SECRET} from "../config";
+import {ACCESS_TOKEN_SECRET} from "../../config";
 import * as jwt from "jsonwebtoken";
 
 export const generateToken = (claims: object, expiresIn: string | number) :string => {

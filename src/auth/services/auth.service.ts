@@ -1,11 +1,11 @@
-import {UserRepository} from "../dataAccess/repositories/user.repository";
-import {ExecutionResult} from "../models/executionResult.model";
-import {ErrorCodes} from "../constants/errorCodes";
-import {logger} from "./logger.service";
-import {UserEntity} from "../dataAccess/entities/user.entity";
-import {generateToken} from "../utils/jwt.utils";
-import {ACCESS_TOKEN_LIFETIME } from "../config";
-import {comparePasswords, hashPassword} from "../utils/hash.utils";
+import {UserRepository} from "../../users/repositories/user.repository";
+import {ExecutionResult} from "../../common/models/executionResult.model";
+import {ErrorCodes} from "../../common/constants/errorCodes";
+import {logger} from "../../common/services/logger.service";
+import {UserEntity} from "../../users/entities/user.entity";
+import {generateToken} from "../../common/utils/jwt.utils";
+import {ACCESS_TOKEN_LIFETIME } from "../../config";
+import {comparePasswords, hashPassword} from "../../common/utils/hash.utils";
 
 export class AuthService{
     private readonly _userRepository: UserRepository;

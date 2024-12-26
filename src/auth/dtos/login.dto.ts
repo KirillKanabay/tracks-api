@@ -1,4 +1,4 @@
-import {ValidationErrorModel} from "../../models/validationError.model";
+import {ValidationErrorModel} from "../../common/models/validationError.model";
 
 export interface LoginDto{
     login: string;

@@ -1,15 +1,15 @@
 import { Request, Router } from "express";
-import { ErrorModel } from "../models/error.model";
+import { ErrorModel } from "../../common/models/error.model";
 import { AuthService } from "../services/auth.service";
-import { responseWithFailedExecutionResult } from "../utils/response.utils";
+import { responseWithFailedExecutionResult } from "../../common/utils/response.utils";
 import {
     LoginDto,
     validate as validateLoginDto
-} from "../dtos/auth/login.dto";
+} from "../dtos/login.dto";
 import {
     SignupDto,
     validate as validateSignupDto
-} from "../dtos/auth/signup.dto";
+} from "../dtos/signup.dto";
 
 const router = Router();
 const authService = new AuthService();

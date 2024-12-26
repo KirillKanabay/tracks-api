@@ -1,6 +1,6 @@
 import {CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model} from 'sequelize';
 import sequelize from 'sequelize/types/sequelize';
-import {UserEntity} from "../entities/user.entity";
+import {UserEntity} from "../../users/entities/user.entity";
 
 export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> implements UserEntity{
     declare id: CreationOptional<string>;
