@@ -19,6 +19,7 @@ export const responseWithFailedExecutionResult = (response: Response, result: Ex
             statusCode = 404;
             break;
         case ErrorCodes.Auth.INVALID_REFRESH_TOKEN:
+        case ErrorCodes.Auth.INVALID_CREDENTIALS:
             statusCode = 403;
             break;
         default:
