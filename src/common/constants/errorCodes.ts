@@ -4,7 +4,8 @@ export class ErrorCodes {
     static readonly INTERNAL = "INTERNAL";
 
     static Auth = class {
-        static readonly INVALID_PASSWORD = "INVALID_PASSWORD OR LOGIN";
+        static readonly INVALID_CREDENTIALS = "INVALID_CREDENTIALS";
+        static readonly INVALID_REFRESH_TOKEN = "INVALID_REFRESH_TOKEN";
     }
 
     static User = class {

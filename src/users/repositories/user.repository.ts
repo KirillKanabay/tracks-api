@@ -20,6 +20,10 @@ export class UserRepository{
         await user.save();
     }
 
+    async updateRefreshToken(login: string, refreshToken: string){
+        await User.update({ refreshToken }, {where: {login}});
+    }
+
     async delete(id: string): Promise<void> {
         await User.destroy({where: {id}});
     }

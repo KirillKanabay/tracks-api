@@ -10,6 +10,11 @@ import {
     SignupDto,
     validate as validateSignupDto
 } from "../dtos/signup.dto";
+import {
+    RefreshTokenDto,
+    validate as validateRefreshTokenDto
+} from "../dtos/refresh-token.dto";
+import {authMiddleware} from "../../common/middlewares/auth.middleware";
 
 const router = Router();
 const authService = new AuthService();
@@ -51,8 +56,23 @@ router.post('/login', async (req: Request<{}, {}, LoginDto>, res) => {
     res.status(200).send(result.data);
 });
 
-router.post('/refresh', async (req, res) => {
-    res.status(200).send('Refresh');
+//TODO: Create type BodiedRequest, that receives only 1 type - body type, instead of Request<{}, {}, TBody>
+router.post('/refresh', authMiddleware(true), async (req: Request<{}, {}, RefreshTokenDto>, res) => {
+    const dto = req.body;
+    const errors = validateRefreshTokenDto(dto);
+
+    if(errors.length){
+        res.status(401).send(ErrorModel.fromValidationErrors(errors));
+        return;
+    }
+
+    const result = await authService.refresh(req.user?.userId!, dto.refreshToken);
+    if (!result.success){
+        responseWithFailedExecutionResult(res, result);
+        return;
+    }
+
+    res.status(200).send(result.data);
 });
 
 export const authRouter = router;

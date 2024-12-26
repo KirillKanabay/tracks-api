@@ -5,6 +5,7 @@ import {UserEntity} from "../../users/entities/user.entity";
 export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> implements UserEntity{
     declare id: CreationOptional<string>;
     declare login: string;
+    declare refreshToken: CreationOptional<string>;
     declare password: string;
     declare version: CreationOptional<number>;
     declare createdAt: CreationOptional<number>;
@@ -39,6 +40,10 @@ export class User extends Model<InferAttributes<User>, InferCreationAttributes<U
             },
             updatedAt: {
                 type: DataTypes.BIGINT,
+                allowNull: true,
+            },
+            refreshToken: {
+                type: DataTypes.STRING,
                 allowNull: true,
             }},
             {

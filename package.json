@@ -6,7 +6,9 @@
   "scripts": {
     "start:dev": "cross-env NODE_ENV=development ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "webpack",
-    "start:prod": "cross-env NODE_ENV=production npm run build && node dist/bundle.js"
+    "start:prod": "cross-env NODE_ENV=production npm run build && node dist/bundle.js",
+    "migrate-db": "npx sequelize-cli db:migrate",
+    "migrate-db:undo": "npx sequelize-cli db:migrate:undo"
   },
   "keywords": [],
   "author": "",

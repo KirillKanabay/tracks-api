@@ -18,6 +18,9 @@ export const responseWithFailedExecutionResult = (response: Response, result: Ex
         case ErrorCodes.NOT_FOUND:
             statusCode = 404;
             break;
+        case ErrorCodes.Auth.INVALID_REFRESH_TOKEN:
+            statusCode = 403;
+            break;
         default:
             statusCode = 400;
             break;
