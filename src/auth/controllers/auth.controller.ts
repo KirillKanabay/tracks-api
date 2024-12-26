@@ -1,4 +1,4 @@
-import { Request, Router } from "express";
+import { Router } from "express";
 import { ErrorModel } from "../../common/models/error.model";
 import { AuthService } from "../services/auth.service";
 import { responseWithFailedExecutionResult } from "../../common/utils/response.utils";
@@ -15,11 +15,12 @@ import {
     validate as validateRefreshTokenDto
 } from "../dtos/refresh-token.dto";
 import {authMiddleware} from "../../common/middlewares/auth.middleware";
+import {BodiedRequest} from "../../common/models/request.model";
 
 const router = Router();
 const authService = new AuthService();
 
-router.post('/signup', async (req: Request<{}, {}, SignupDto>, res) => {
+router.post('/signup', async (req: BodiedRequest<SignupDto>, res) => {
     const dto = req.body;
     const errors = validateSignupDto(dto);
 
@@ -38,7 +39,7 @@ router.post('/signup', async (req: Request<{}, {}, SignupDto>, res) => {
     res.status(201).send({ message: 'User created' });
 });
 
-router.post('/login', async (req: Request<{}, {}, LoginDto>, res) => {
+router.post('/login', async (req: BodiedRequest<LoginDto>, res) => {
     const dto = req.body;
     const errors = validateLoginDto(dto);
 
@@ -56,8 +57,7 @@ router.post('/login', async (req: Request<{}, {}, LoginDto>, res) => {
     res.status(200).send(result.data);
 });
 
-//TODO: Create type BodiedRequest, that receives only 1 type - body type, instead of Request<{}, {}, TBody>
-router.post('/refresh', authMiddleware(true), async (req: Request<{}, {}, RefreshTokenDto>, res) => {
+router.post('/refresh', authMiddleware(true), async (req: BodiedRequest<RefreshTokenDto>, res) => {
     const dto = req.body;
     const errors = validateRefreshTokenDto(dto);
 
