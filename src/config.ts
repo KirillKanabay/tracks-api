@@ -9,6 +9,7 @@ export const PORT: number = process.env.PORT
     ? parseInt(process.env.PORT) : 3000;
 
 export const ACCESS_TOKEN_SECRET = process.env.ACCESS_TOKEN_SECRET;
+export const ACCESS_TOKEN_LIFETIME = process.env.ACCESS_TOKEN_LIFETIME ?? '1d';
 
 export const DB_HOST = process.env.DB_HOST;
 export const DB_NAME = process.env.DB_NAME;

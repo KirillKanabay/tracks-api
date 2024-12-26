@@ -7,6 +7,10 @@ export class UserRepository{
         return User.findByPk(id);
     }
 
+    async getByLogin(login: string): Promise<UserEntity | null> {
+        return User.findOne({where: {login}});
+    }
+
     async add(entity: UserEntity): Promise<void> {
         await User.create(entity);
     }

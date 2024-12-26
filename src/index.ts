@@ -1,14 +1,16 @@
 import express from 'express';
 import {PORT} from "./config";
-import {logger} from "./common/logging/logger.service";
+import {logger} from "./services/logger.service";
 import {authRouter} from "./controllers/auth.controller";
 import {createSequelize} from "./dataAccess/sequelizeFactory";
-import {UserRepository} from "./dataAccess/repositories/user.repository";
+import {errorHandlingMiddleware} from "./middlewares/errorHandling.middleware";
 
 const app = express();
 const sequelize = createSequelize();
 
+app.use(express.json());
 app.use('/auth', authRouter);
+app.use(errorHandlingMiddleware);
 
 process
     .on('unhandledRejection', (reason) => {

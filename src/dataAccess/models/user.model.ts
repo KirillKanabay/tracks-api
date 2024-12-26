@@ -1,18 +1,8 @@
-import {CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model, Sequelize} from 'sequelize';
+import {CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model} from 'sequelize';
 import sequelize from 'sequelize/types/sequelize';
+import {UserEntity} from "../entities/user.entity";
 
-export interface UserEntity{
-    id?: string;
-    login: string;
-    password: string;
-    version: number;
-    createdAt: number;
-    updatedAt: number;
-}
-
-export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>>
-    implements UserEntity{
-
+export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> implements UserEntity{
     declare id: CreationOptional<string>;
     declare login: string;
     declare password: string;
@@ -58,11 +48,11 @@ export class User extends Model<InferAttributes<User>, InferCreationAttributes<U
                 timestamps: false,
             });
 
-        User.beforeCreate((user, options) => {
+        User.beforeCreate((user) => {
             user.createdAt = Date.now();
         });
 
-        User.beforeUpdate((user, options) => {
+        User.beforeUpdate((user) => {
             user.updatedAt = Date.now();
         });
     };
