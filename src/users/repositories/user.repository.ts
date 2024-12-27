@@ -3,6 +3,10 @@ import {UserEntity} from "../entities/user.entity";
 import {User} from "../../dataAccess/models/user.model";
 
 export class UserRepository{
+    async getAll(): Promise<UserEntity[]> {
+        return User.findAll();
+    }
+
     async get(id: string): Promise<UserEntity | null> {
         return User.findByPk(id);
     }
@@ -15,9 +19,8 @@ export class UserRepository{
         await User.create(entity);
     }
 
-    async update(entity: UserEntity): Promise<void> {
-        const user = User.build(entity);
-        await user.save();
+    async update(id: string, entity: Partial<UserEntity>): Promise<void> {
+        await User.update(entity, {where: {id}})
     }
 
     async updateRefreshToken(login: string, refreshToken: string){

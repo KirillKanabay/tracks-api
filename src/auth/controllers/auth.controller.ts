@@ -15,7 +15,7 @@ import {
     validate as validateRefreshTokenDto
 } from "../dtos/refresh-token.dto";
 import {authMiddleware} from "../../common/middlewares/auth.middleware";
-import {BodiedRequest} from "../../common/models/request.model";
+import {BodiedRequest} from "../../common/types/request.type";
 
 const router = Router();
 const authService = new AuthService();
