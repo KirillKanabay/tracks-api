@@ -1,6 +1,7 @@
 import {Sequelize} from "sequelize";
 import {DB_HOST, DB_NAME, DB_PASSWORD, DB_USER} from "../config";
 import {User} from "./models/user.model";
+import {Artist} from "./models/artist.model";
 
 export const createSequelize = () => {
     const sequelize = new Sequelize({
@@ -12,6 +13,7 @@ export const createSequelize = () => {
     });
 
     User.initModel(sequelize);
+    Artist.initModel(sequelize);
 
     return sequelize;
 };

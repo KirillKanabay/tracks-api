@@ -1,64 +1,25 @@
-import {CreationOptional, DataTypes, InferAttributes, InferCreationAttributes, Model} from 'sequelize';
+import { CreationOptional, DataTypes } from 'sequelize';
 import sequelize from 'sequelize/types/sequelize';
 import {UserEntity} from "../../users/entities/user.entity";
+import {BaseModel} from "./base.model";
 
-export class User extends Model<InferAttributes<User>, InferCreationAttributes<User>> implements UserEntity{
-    declare id: CreationOptional<string>;
+export class User extends BaseModel<User> implements UserEntity{
     declare login: string;
     declare refreshToken: CreationOptional<string>;
     declare password: string;
-    declare version: CreationOptional<number>;
-    declare createdAt: CreationOptional<number>;
-    declare updatedAt: CreationOptional<number>;
 
     static initModel(sequelize: sequelize){
-        this.init({
-            id: {
-                type: DataTypes.STRING,
-                allowNull: false,
-                primaryKey: true,
-                defaultValue: DataTypes.UUIDV4,
-            },
+        this.init({...this.baseInitConfig,
             login: {
                 type: DataTypes.STRING,
                 allowNull: false,
                 unique: true,
             },
-            password: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
-            version: {
-                type: DataTypes.INTEGER,
-                allowNull: false,
-                defaultValue: 0,
-            },
-            createdAt: {
-                type: DataTypes.BIGINT,
-                allowNull: false,
-                defaultValue: DataTypes.NOW,
-            },
-            updatedAt: {
-                type: DataTypes.BIGINT,
-                allowNull: true,
-            },
-            refreshToken: {
-                type: DataTypes.STRING,
-                allowNull: true,
-            }},
-            {
-                sequelize,
-                tableName: 'User',
-                version: true,
-                timestamps: false,
-            });
+            password: { type: DataTypes.STRING, allowNull: false },
+            refreshToken: { type: DataTypes.STRING, allowNull: true,}
+        }, this.getBaseOptions(sequelize, 'User'));
 
-        User.beforeCreate((user) => {
-            user.createdAt = Date.now();
-        });
-
-        User.beforeUpdate((user) => {
-            user.updatedAt = Date.now();
-        });
+        User.beforeCreate(this.beforeCreateHandler);
+        User.beforeUpdate(this.beforeUpdateHandler);
     };
 }
