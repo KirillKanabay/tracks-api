@@ -6,6 +6,7 @@ import {errorHandlingMiddleware} from "./common/middlewares/errorHandling.middle
 import {logger} from "./common/services/logger.service";
 import {artistRouter} from "./artists/artist.controller";
 import {albumRouter} from "./albums/album.controller";
+import {trackRouter} from "./tracks/track.controller";
 
 export class Application{
     private readonly _express: Express;
@@ -31,6 +32,7 @@ export class Application{
         this._express.use('/user', userRouter);
         this._express.use('/artist', artistRouter);
         this._express.use('/album', albumRouter);
+        this._express.use('/track', trackRouter);
     }
 
     public useExceptionHandling(unhandledRejectionHandler: (reason: unknown) => void, uncaughtExceptionHandler: (err: Error) => void){

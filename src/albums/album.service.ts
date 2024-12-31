@@ -109,8 +109,8 @@ export class AlbumService {
         }
     }
 
-    private isArtistExists(artistId: string): Promise<boolean>{
-        return this._artistRepository.get(artistId)
-            .then(artist => !!artist);
+    private async isArtistExists(artistId: string): Promise<boolean> {
+        let artist = await this._artistRepository.get(artistId);
+        return !!artist;
     }
 }

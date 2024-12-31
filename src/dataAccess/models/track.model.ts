@@ -1,14 +1,14 @@
 import {BaseModel} from "./base.model";
 import {TrackEntity} from "../../tracks/track.entity";
-import {CreationOptional, DataTypes, NonAttribute} from "sequelize";
+import {DataTypes, ForeignKey, NonAttribute} from "sequelize";
 import sequelize from 'sequelize/types/sequelize';
 import {Artist} from "./artist.model";
 import {Album} from "./album.model";
 
 export class Track extends BaseModel<Track> implements TrackEntity{
     declare name: string;
-    declare artistId: CreationOptional<string>;
-    declare albumId: CreationOptional<string>;
+    declare artistId: ForeignKey<Artist['id'] | null>;
+    declare albumId: ForeignKey<Album['id'] | null>;
     declare duration: number;
 
     declare artist?: NonAttribute<Artist>
