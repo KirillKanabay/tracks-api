@@ -4,7 +4,7 @@ import {ArtistDto} from "./dtos/artist.dto";
 import {logger} from "../common/services/logger.service";
 import {ErrorCodes} from "../common/constants/errorCodes";
 import {ArtistEntity} from "./artist.entity";
-import {SaveArtistDto} from "./dtos/saveArtistDto";
+import {SaveArtistDto} from "./dtos/save-artist.dto";
 import {Artist} from "../dataAccess/models/artist.model";
 
 export class ArtistService{

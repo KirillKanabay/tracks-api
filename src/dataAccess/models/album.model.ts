@@ -7,7 +7,7 @@ import {Artist} from "./artist.model";
 export class Album extends BaseModel<Album> implements AlbumEntity{
     declare name: string;
     declare year: number;
-    declare artistId: ForeignKey<Artist['id']>;
+    declare artistId: ForeignKey<Artist['id'] | null>;
 
     declare artist?: NonAttribute<Artist>
 
