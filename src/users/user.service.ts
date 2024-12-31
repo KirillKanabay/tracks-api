@@ -1,10 +1,10 @@
-import {UserRepository} from "../repositories/user.repository";
-import {UserDto} from "../dtos/user.dto";
-import {logger} from "../../common/services/logger.service";
-import {ExecutionResult} from "../../common/models/executionResult.model";
-import {ErrorCodes} from "../../common/constants/errorCodes";
-import {UserEntity} from "../entities/user.entity";
-import * as hash from "../../common/utils/hash.utils";
+import {UserRepository} from "./user.repository";
+import {UserDto} from "./dtos/user.dto";
+import {logger} from "../common/services/logger.service";
+import {ExecutionResult} from "../common/models/executionResult.model";
+import {ErrorCodes} from "../common/constants/errorCodes";
+import {UserEntity} from "./user.entity";
+import * as hash from "../common/utils/hash.utils";
 
 export class UserService{
     private readonly _userRepository: UserRepository;

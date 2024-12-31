@@ -1,6 +1,6 @@
 import { CreationOptional, DataTypes } from 'sequelize';
 import sequelize from 'sequelize/types/sequelize';
-import {UserEntity} from "../../users/entities/user.entity";
+import {UserEntity} from "../../users/user.entity";
 import {BaseModel} from "./base.model";
 
 export class User extends BaseModel<User> implements UserEntity{

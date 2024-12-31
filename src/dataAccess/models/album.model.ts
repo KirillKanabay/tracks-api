@@ -1,5 +1,5 @@
 import {BaseModel} from "./base.model";
-import {AlbumEntity} from "../../albums/entities/album.entity";
+import {AlbumEntity} from "../../albums/album.entity";
 import {DataTypes, ForeignKey, NonAttribute} from "sequelize";
 import sequelize from 'sequelize/types/sequelize';
 import {Artist} from "./artist.model";

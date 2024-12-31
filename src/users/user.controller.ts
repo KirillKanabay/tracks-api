@@ -1,12 +1,12 @@
 import {Router} from "express";
-import {UserService} from "../services/user.service";
-import {responseWithFailedExecutionResult} from "../../common/utils/response.utils";
+import {UserService} from "./user.service";
+import {responseWithFailedExecutionResult} from "../common/utils/response.utils";
 import {validate as isUUID} from 'uuid';
-import {ErrorModel} from "../../common/models/error.model";
-import {AuthService} from "../../auth/services/auth.service";
-import {BodiedRequest} from "../../common/types/request.type";
-import {CreateUserDto, validate as validateCreateUserDto} from "../dtos/createUser.dto";
-import {UpdatePasswordDto, validate as validateUpdatePasswordDto} from "../dtos/updatePassword.dto";
+import {ErrorModel} from "../common/models/error.model";
+import {AuthService} from "../auth/auth.service";
+import {BodiedRequest} from "../common/types/request.type";
+import {CreateUserDto, validate as validateCreateUserDto} from "./dtos/createUser.dto";
+import {UpdatePasswordDto, validate as validateUpdatePasswordDto} from "./dtos/updatePassword.dto";
 
 const router = Router();
 const userService = new UserService();

@@ -1,5 +1,5 @@
-import {UserEntity} from "../entities/user.entity";
-import {User} from "../../dataAccess/models/user.model";
+import {UserEntity} from "./user.entity";
+import {User} from "../dataAccess/models/user.model";
 
 export class UserRepository{
     async getAll(): Promise<UserEntity[]> {

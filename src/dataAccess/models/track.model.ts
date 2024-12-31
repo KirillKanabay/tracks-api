@@ -1,5 +1,5 @@
 import {BaseModel} from "./base.model";
-import {TrackEntity} from "../../tracks/entities/track.entity";
+import {TrackEntity} from "../../tracks/track.entity";
 import {CreationOptional, DataTypes, NonAttribute} from "sequelize";
 import sequelize from 'sequelize/types/sequelize';
 import {Artist} from "./artist.model";

@@ -1,4 +1,4 @@
-import {BaseEntity} from "../../dataAccess/entities/base.entity";
+import {BaseEntity} from "../dataAccess/entities/base.entity";
 
 export interface AlbumEntity extends BaseEntity {
     name: string;

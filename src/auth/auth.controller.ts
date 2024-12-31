@@ -1,21 +1,21 @@
 import { Router } from "express";
-import { ErrorModel } from "../../common/models/error.model";
-import { AuthService } from "../services/auth.service";
-import { responseWithFailedExecutionResult } from "../../common/utils/response.utils";
+import { ErrorModel } from "../common/models/error.model";
+import { AuthService } from "./auth.service";
+import { responseWithFailedExecutionResult } from "../common/utils/response.utils";
 import {
     LoginDto,
     validate as validateLoginDto
-} from "../dtos/login.dto";
+} from "./dtos/login.dto";
 import {
     SignupDto,
     validate as validateSignupDto
-} from "../dtos/signup.dto";
+} from "./dtos/signup.dto";
 import {
     RefreshTokenDto,
     validate as validateRefreshTokenDto
-} from "../dtos/refresh-token.dto";
-import {authMiddleware} from "../../common/middlewares/auth.middleware";
-import {BodiedRequest} from "../../common/types/request.type";
+} from "./dtos/refresh-token.dto";
+import {authMiddleware} from "../common/middlewares/auth.middleware";
+import {BodiedRequest} from "../common/types/request.type";
 
 const router = Router();
 const authService = new AuthService();

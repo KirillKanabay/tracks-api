@@ -1,6 +1,6 @@
 import express, {Express} from "express";
-import {authRouter} from "./auth/controllers/auth.controller";
-import {userRouter} from "./users/controllers/user.controller";
+import {authRouter} from "./auth/auth.controller";
+import {userRouter} from "./users/user.controller";
 import {authMiddleware} from "./common/middlewares/auth.middleware";
 import {errorHandlingMiddleware} from "./common/middlewares/errorHandling.middleware";
 import {logger} from "./common/services/logger.service";

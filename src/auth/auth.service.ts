@@ -1,10 +1,10 @@
-import {UserRepository} from "../../users/repositories/user.repository";
-import {ExecutionResult} from "../../common/models/executionResult.model";
-import {ErrorCodes} from "../../common/constants/errorCodes";
-import {logger} from "../../common/services/logger.service";
-import * as jwt from "../../common/utils/jwt.utils";
-import * as hash from "../../common/utils/hash.utils";
-import {TokensDto} from "../dtos/tokens.dto";
+import {UserRepository} from "../users/user.repository";
+import {ExecutionResult} from "../common/models/executionResult.model";
+import {ErrorCodes} from "../common/constants/errorCodes";
+import {logger} from "../common/services/logger.service";
+import * as jwt from "../common/utils/jwt.utils";
+import * as hash from "../common/utils/hash.utils";
+import {TokensDto} from "./dtos/tokens.dto";
 
 export class AuthService{
     private readonly _userRepository: UserRepository;
