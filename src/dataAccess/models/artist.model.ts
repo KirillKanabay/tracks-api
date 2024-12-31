@@ -1,5 +1,5 @@
 import {DataTypes, NonAttribute} from "sequelize";
-import {ArtistEntity} from "../../artists/entities/artist.entity";
+import {ArtistEntity} from "../../artists/artist.entity";
 import sequelize from 'sequelize/types/sequelize';
 import {BaseModel} from "./base.model";
 import {Album} from "./album.model";
@@ -20,8 +20,10 @@ export class Artist extends BaseModel<Artist> implements ArtistEntity {
 
         Artist.beforeCreate(this.beforeCreateHandler);
         Artist.beforeUpdate(this.beforeUpdateHandler);
-
-        Artist.hasMany(Album);
-        Artist.hasMany(Track);
     };
+
+    static associate(){
+        Artist.hasMany(Album, { foreignKey: 'artistId', as: 'album' });
+        Artist.hasMany(Track, { foreignKey: 'artistId', as: 'track' });
+    }
 }

@@ -51,12 +51,4 @@ export abstract class BaseModel<TModel extends Model<any, any>>
     protected static beforeCreateHandler(instance: BaseModel<any>){
         instance.createdAt = Date.now();
     }
-
-//     Artist.beforeCreate((artist) => {
-//     artist.createdAt = Date.now();
-// });
-//
-// Artist.beforeUpdate((artist) => {
-//     artist.updatedAt = Date.now();
-// });
 }

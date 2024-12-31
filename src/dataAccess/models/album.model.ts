@@ -27,7 +27,9 @@ export class Album extends BaseModel<Album> implements AlbumEntity{
 
         Album.beforeCreate(this.beforeCreateHandler);
         Album.beforeUpdate(this.beforeUpdateHandler);
-
-        Album.belongsTo(Artist, {foreignKey: 'artistId', as: 'artist'});
     };
+
+    static associate(){
+        Album.belongsTo(Artist, {foreignKey: 'artistId', as: 'artist'});
+    }
 }

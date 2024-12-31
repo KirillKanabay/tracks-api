@@ -38,8 +38,10 @@ export class Track extends BaseModel<Track> implements TrackEntity{
 
         Track.beforeCreate(this.beforeCreateHandler);
         Track.beforeUpdate(this.beforeUpdateHandler);
+    };
 
+    static associate() {
         Track.belongsTo(Artist, {foreignKey: 'artistId', as: 'artist'});
         Track.belongsTo(Album, {foreignKey: 'albumId', as: 'album'});
-    };
+    }
 }

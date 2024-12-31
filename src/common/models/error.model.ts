@@ -25,4 +25,8 @@ export class ErrorModel{
 
         return new ErrorModel(result.errorMessage!);
     }
+
+    public static invalidUUID(): ErrorModel{
+        return this.fromValidationErrors([{field: 'id', message: 'Invalid UUID'}]);
+    }
 }
